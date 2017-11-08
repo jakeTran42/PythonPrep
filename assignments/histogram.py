@@ -45,6 +45,15 @@ def histogramTuples(cleanText):
             histogram.remove(word)
     return histogram
 
+def frequency(histogram, word):
+    if word in histogram:
+        return histogram[word]
+    else:
+        return 0
+
+def unique_words(histogram):
+
+
 if __name__ == '__main__':
     cleanFiles = cleanText('text.txt')
     his_Dict = histogramDictionary(cleanFiles)
