@@ -3,13 +3,13 @@ from histogram import histogramDictionary
 from histogram import cleanText
 import random
 
-# def weighted_array(his_Array):
-#     weightedHist = []
-#     total = sum(word[1] for word in his_Array)
-#     for word in his_Array:
-#         weightedHist.append([word[0], word[1]/total])
-#     return weightedHist
-#
+def weighted_array(his_Array):
+    weightedHist = []
+    total = sum(word[1] for word in his_Array)
+    for word in his_Array:
+        weightedHist.append([word[0], word[1]/total])
+    return weightedHist
+
 #
 # def stochastic_sampling(weighted_hist):
 #     cum_weight = 0
