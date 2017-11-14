@@ -52,6 +52,13 @@ def frequency(histogram, word):
         return 0
 
 def unique_words(histogram):
+    types =[]
+    for word in histogram:
+        if histogram[word] == 1:
+            types.append(word)
+        else:
+            pass
+    return types, (len(histogram) - 1)
 
 
 if __name__ == '__main__':
@@ -59,4 +66,7 @@ if __name__ == '__main__':
     his_Dict = histogramDictionary(cleanFiles)
     his_Array = histogramNestedArray(cleanFiles)
     histogramTuples = histogramTuples(cleanFiles)
-    print(his_Array)
+    freq_tokens = frequency(his_Dict, "the")
+    print("The Word appear '" + str(freq_tokens) + "' times.")
+    unique_types = unique_words(his_Dict)
+    print("The unique words are " + str(unique_types[0]) + "\n and there are '" + str(unique_types[1]) + "' unique words")
