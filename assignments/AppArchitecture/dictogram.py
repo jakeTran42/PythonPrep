@@ -21,6 +21,7 @@ class Dictogram(dict):
         """Increase frequency count of given word by given count amount."""
         self.tokens += count
 
+        #if word in word_list, then += 1 to histogram
         if word in self:
             self[word] += count
         else:
