@@ -24,17 +24,17 @@ class HashTable(object):
         # Calculate the given key's hash code and transform into bucket index
         return hash(key) % len(self.buckets)
 
-    def keys(self):
+    def keys(self): # O(n)
         """Return a list of all keys in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
         # Collect all keys in each bucket
-        all_keys = []
-        for bucket in self.buckets:
+        all_keys = [] # O(1)
+        for bucket in self.buckets: # O(n)
             for key, value in bucket.items():
                 all_keys.append(key)
         return all_keys
 
-    def values(self):
+    def values(self): # O(n)
         """Return a list of all values in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
@@ -47,7 +47,7 @@ class HashTable(object):
 
         return values_list
 
-    def items(self):
+    def items(self): # O(n)
         """Return a list of all items (key-value pairs) in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
         # Collect all pairs of key-value entries in each bucket
@@ -56,7 +56,7 @@ class HashTable(object):
             all_items.extend(bucket.items())
         return all_items
 
-    def length(self):
+    def length(self): # O(n)
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
@@ -68,7 +68,7 @@ class HashTable(object):
 
         return total_entries
 
-    def contains(self, key):
+    def contains(self, key): # O(n)
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
@@ -82,7 +82,7 @@ class HashTable(object):
 
         return in_hash_table
 
-    def get(self, key):
+    def get(self, key): # O(n)
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
@@ -100,7 +100,7 @@ class HashTable(object):
         raise KeyError('Key not found: {}'.format(key))
 
 
-    def set(self, key, value):
+    def set(self, key, value): # O(n)
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
@@ -127,7 +127,7 @@ class HashTable(object):
         if not in_hash_table:
             bucket.append((key, value))
 
-    def delete(self, key):
+    def delete(self, key): # O(n)
         """Delete the given key from this hash table, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
