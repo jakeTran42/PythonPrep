@@ -42,3 +42,33 @@ def wordProbability(histogram):
 #         words.append(key)
 #     randIndex = random.randint(0, len(words))
 #     return word_list[random_index]
+
+
+def getNextWord(dictionary):
+
+    ''' Choose the next word to append for sentence '''
+
+    nextWordHistogram = wordProbability(dictionary)
+
+    getTotalWord = totalWords(dictionary)
+
+    random_num = random.randint(1, getTotalWord)
+    for key, value in nextWordHistogram.items():
+        if value < random_num:
+            random_num -= value
+        else:
+            return key
+
+def markovDictogram(text):
+    wordList = text.split()
+    markovDict = {}
+    for wordIndex in range(len(wordList) - 2):
+        currentTuple = tuple((wordList[index]) for index in range(wordIndex, wordIndex + 2))
+        nextWord = wordList[wordIndex + 2]
+
+        if currentTuple in markovDict:
+            markovDict[currentTuple].add_count(nextWord)
+        else:
+            markovDict[currentTuple] = Dictogram([nextWord])
+
+    return markovDict
