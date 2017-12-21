@@ -72,3 +72,19 @@ def markovDictogram(text):
             markovDict[currentTuple] = Dictogram([nextWord])
 
     return markovDict
+
+def createMarkovChain(dictionary):
+    ''' Return sentences '''
+
+    dictionaryKeys = [key for key, value in dictionary.items()]
+    sentenceArray = list(dictionaryKeys[random.randint(0, len(dictionaryKeys) - 1)])
+
+    for wordIndex in range(10):
+        key  = tuple((sentenceArray[index]) for index in range(wordIndex, wordIndex + 2))
+
+        if key in dictionary:
+            wordDict = dictionary[key]
+            next_Word = getNextWord(wordDict)
+            sentenceArray.append(next_Word)
+
+        return ' '.join(sentenceArray)
