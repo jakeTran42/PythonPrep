@@ -88,3 +88,10 @@ def createMarkovChain(dictionary):
             sentenceArray.append(next_Word)
 
         return ' '.join(sentenceArray)
+
+
+if __name__ == "__main__":
+    text = 'Miss Watson she kept pecking at me, and it got tiresome and lonesome. By and by they fetched the niggers in and had prayers. I hadn’t no confidence.  You do that when you’ve lost a horseshoe that'
+
+    markov = markovDictogram(text)
+    print(createMarkovChain(markov))
